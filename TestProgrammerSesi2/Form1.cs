@@ -85,6 +85,7 @@ namespace TestProgrammerSesi2
             count = Convert.ToInt32(dt.Rows.Count.ToString());
             dataGridView1.DataSource = dt;
             con.Close();
+            txtNim.Text = "";
 
             if (count == 0)
             {
@@ -98,7 +99,7 @@ namespace TestProgrammerSesi2
             con.Open();
             OleDbCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from mahasiswa where nama = '" + txtNama.Text + "'";
+            cmd.CommandText = "select * from mahasiswa where nama = '" + txtCariNama.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
@@ -106,6 +107,7 @@ namespace TestProgrammerSesi2
             count = Convert.ToInt32(dt.Rows.Count.ToString());
             dataGridView1.DataSource = dt;
             con.Close();
+            txtCariNama.Text = "";
 
             if (count == 0)
             {
